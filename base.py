@@ -35,10 +35,21 @@ led = platform.request("user_led")
 # create our module (fpga description)
 module = Module()
 
+
 # create a counter and blink a led
-counter = Signal(26)
-module.comb += led.eq(counter[25])
-module.sync += counter.eq(counter + 1)
+counter = Signal(17)
+en = Signal(1,reset = 1)
+
+module.comb += led.eq(en)
+
+module.sync +=[
+    If(counter == 600,
+        counter.eq(0),
+        en.eq(~en)
+    ).Else(
+        counter.eq(counter + 1)
+    )
+]
 
 #
 # build

@@ -1,0 +1,17 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat Feb 02 12:07:16 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "user_led" LOCATE = SITE "P56" LEVEL 1;
+COMP "clk100" LOCATE = SITE "P84" LEVEL 1;
+TIMEGRP PRDclk100 = BEL "platform_int_rst" BEL "__main___counter_0" BEL
+        "__main___en_BRB0" BEL "__main___en_BRB1" BEL "__main___en_BRB2" BEL
+        "__main___en_BRB3" BEL "__main___en_BRB4" BEL "__main___en_BRB5" BEL
+        "__main___counter_1" BEL "__main___counter_2" BEL "__main___counter_3"
+        BEL "__main___counter_4" BEL "__main___counter_5" BEL
+        "__main___counter_6" BEL "__main___counter_7" BEL "__main___counter_8"
+        BEL "__main___counter_9" BEL "clk100_BUFGP/BUFG";
+TSclk100 = PERIOD TIMEGRP "PRDclk100" 20 ns HIGH 50%;
+SCHEMATIC END;
+

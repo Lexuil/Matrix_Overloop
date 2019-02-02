@@ -1,0 +1,321 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+WARNING:Xst:1583 - You are using an internal switch '-use_new_parser'.
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : MIXED
+
+---- Target Parameters
+Output File Name                   : "top.ngc"
+Target Device                      : xc6slx4-2tqg144
+
+---- Source Options
+Top Module Name                    : top
+Use New Parser                     : yes
+Automatic Register Balancing       : yes
+
+---- General Options
+Optimization Goal                  : SPEED
+
+=========================================================================
+
+WARNING:Xst:29 - Optimization Effort not specified
+=========================================================================
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/lexuil/Documentos/Github/Matrix_Overloop/build/top.v" into library work
+Parsing module <top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <top>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "/home/lexuil/Documentos/Github/Matrix_Overloop/build/top.v".
+    Found 17-bit register for signal <__main___counter>.
+    Found 1-bit register for signal <user_led>.
+    Found 1-bit register for signal <platform_int_rst>.
+    Found 17-bit adder for signal <_main___counter[16]_GND_1_o_add_3_OUT> created at line 33.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  19 D-type flip-flop(s).
+Unit <top> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 17-bit adder                                          : 1
+# Registers                                            : 3
+ 1-bit register                                        : 2
+ 17-bit register                                       : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <top>.
+The following registers are absorbed into counter <__main___counter>: 1 register on signal <__main___counter>.
+Unit <top> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 17-bit up counter                                     : 1
+# Registers                                            : 2
+ Flip-Flops                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1426 - The value init of the FF/Latch platform_int_rst hinder the constant cleaning in the block top.
+   You should achieve better results by setting this init to 0.
+
+Optimizing unit <top> ...
+WARNING:Xst:1293 - FF/Latch <__main___counter_10> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <__main___counter_11> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <__main___counter_12> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <__main___counter_13> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <__main___counter_14> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <__main___counter_15> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <__main___counter_16> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 0.
+
+Pipelining and Register Balancing Report ...
+
+Processing Unit <top> :
+	Register(s) __main___en has(ve) been backward balanced into : __main___en_BRB0 __main___en_BRB1 __main___en_BRB2 __main___en_BRB3 __main___en_BRB4 __main___en_BRB5.
+Unit <top> processed.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 17
+ Flip-Flops                                            : 17
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 47
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 9
+#      LUT2                        : 11
+#      LUT3                        : 1
+#      LUT5                        : 1
+#      LUT6                        : 3
+#      MUXCY                       : 9
+#      VCC                         : 1
+#      XORCY                       : 10
+# FlipFlops/Latches                : 17
+#      FD                          : 17
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 1
+#      OBUF                        : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx4tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              17  out of   4800     0%  
+ Number of Slice LUTs:                   26  out of   2400     1%  
+    Number used as Logic:                26  out of   2400     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     30
+   Number with an unused Flip Flop:      13  out of     30    43%  
+   Number with an unused LUT:             4  out of     30    13%  
+   Number of fully used LUT-FF pairs:    13  out of     30    43%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                           2
+ Number of bonded IOBs:                   2  out of    102     1%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk100                             | BUFGP                  | 17    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 4.259ns (Maximum Frequency: 234.797MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 5.553ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk100'
+  Clock period: 4.259ns (frequency: 234.797MHz)
+  Total number of paths / destination ports: 182 / 16
+-------------------------------------------------------------------------
+Delay:               4.259ns (Levels of Logic = 3)
+  Source:            __main___counter_2 (FF)
+  Destination:       __main___counter_1 (FF)
+  Source Clock:      clk100 rising
+  Destination Clock: clk100 rising
+
+  Data Path: __main___counter_2 to __main___counter_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.525   1.156  __main___counter_2 (__main___counter_2)
+     LUT5:I0->O            3   0.254   0.766  _main___counter[16]_GND_1_o_equal_3_o<16>_SW0 (N3)
+     LUT6:I5->O            9   0.254   0.976  Mcount___main___counter_val1 (Mcount___main___counter_val)
+     LUT2:I1->O            1   0.254   0.000  __main___counter_1_rstpot (__main___counter_1_rstpot)
+     FD:D                      0.074          __main___counter_1
+    ----------------------------------------
+    Total                      4.259ns (1.361ns logic, 2.898ns route)
+                                       (32.0% logic, 68.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk100'
+  Total number of paths / destination ports: 6 / 1
+-------------------------------------------------------------------------
+Offset:              5.553ns (Levels of Logic = 2)
+  Source:            __main___en_BRB0 (FF)
+  Destination:       user_led (PAD)
+  Source Clock:      clk100 rising
+
+  Data Path: __main___en_BRB0 to user_led
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.525   1.137  __main___en_BRB0 (__main___en_BRB0)
+     LUT6:I0->O            2   0.254   0.725  __main___en_rstpot1 (__main___en)
+     OBUF:I->O                 2.912          user_led_OBUF (user_led)
+    ----------------------------------------
+    Total                      5.553ns (3.691ns logic, 1.862ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk100
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk100         |    4.259|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.20 secs
+ 
+--> 
+
+
+Total memory usage is 390176 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
