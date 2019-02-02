@@ -7,7 +7,7 @@ from migen.build.xilinx import XilinxPlatform
 #
 
 _io = [
-    ("user_led",  0, Pins("P39"), IOStandard("LVCMOS33")),
+    ("user_led",  0, Pins("P56"), IOStandard("LVCMOS33")),
 
     ("clk100", 0, Pins("P84"), IOStandard("LVCMOS33")),
 ]
